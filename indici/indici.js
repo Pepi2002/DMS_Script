@@ -26,8 +26,7 @@ db.foods.createIndex(
   {"data_type": 1}
 );
 db.foods.createIndex(
-  {"survey_data.wweia_category_code": 1},
-  {unique:true}
+  {"survey_data.wweia_category_code": 1}
 );
 // --- 4. Collezione: conversion_factors ---
 db.conversion_factors.createIndex(
@@ -45,6 +44,7 @@ db.ingredients.createIndex(
 db.ingredients.createIndex(
   { "nutritional_profile.nutrient_ref": 1 }
 );
+
 
 
 
