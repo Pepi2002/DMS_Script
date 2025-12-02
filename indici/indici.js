@@ -22,7 +22,7 @@ db.foods.createIndex(
 db.foods.createIndex(
   { "portions.measure_unit_ref": 1 }
 );
-db.foods.creatIndex(
+db.foods.createIndex(
   {"data_type": 1},
   {unique:true}
 );
@@ -46,4 +46,5 @@ db.ingredients.createIndex(
 db.ingredients.createIndex(
   { "nutritional_profile.nutrient_ref": 1 }
 );
+
 
