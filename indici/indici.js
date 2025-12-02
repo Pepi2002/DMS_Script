@@ -23,11 +23,10 @@ db.foods.createIndex(
   { "portions.measure_unit_ref": 1 }
 );
 db.foods.createIndex(
-  {"data_type": 1},
-  {unique:true}
+  {"data_type": 1}
 );
 db.foods.createIndex(
-  {"wweia_category_code": 1},
+  {"survey_data.wweia_category_code": 1},
   {unique:true}
 );
 // --- 4. Collezione: conversion_factors ---
@@ -46,5 +45,6 @@ db.ingredients.createIndex(
 db.ingredients.createIndex(
   { "nutritional_profile.nutrient_ref": 1 }
 );
+
 
 
