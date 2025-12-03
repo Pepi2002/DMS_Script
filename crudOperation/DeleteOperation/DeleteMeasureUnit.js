@@ -1,16 +1,15 @@
-/* === DELETE: COLLEZIONE measure_unit === */
-
 // SETUP: Inserimento Dati di Test
-db.measure_unit.insertOne({
+db.measure_units.insertOne({
     id: 99999, name: "UnitaToRemove"
 });
 
-// DELETE SUCCESS: Cancellazione Singola per ID
-db.measure_unit.deleteOne(
+// TEST SUCCESS-5: Cancellazione Singola per ID
+db.measure_units.deleteOne(
     { id: 99999 }
 );
 
-// DELETE FAILURE: Cancellazione con filtro non corrispondente
-db.measure_unit.deleteOne(
-    { name: "name Inesistente" } // Risultato: deletedCount: 0
+// TEST FAILURE-5: Cancellazione con filtro non corrispondente
+// Risultato atteso: deletedCount: 0
+db.measure_units.deleteOne(
+    { name: "name Inesistente" } 
 );
