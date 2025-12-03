@@ -20,13 +20,14 @@ db.ingredients.insertOne({
     }]
 });
 
-// ID-2: Lettura Diretta per ID (food_ref: 900010)
+// TEST ID-2: Lettura Diretta per ID (food_ref: 900010)
 db.ingredients.find(
     { food_ref: 9000010 }
 ).pretty();
 
-// HIGH-2: Query su dati incorporati (Filtra per nutrient_value > 90000000000)
+// TEST HIGH-2: Query su dati incorporati (Filtra per nutrient_value > 90000000000)
 db.ingredients.find(
     { "nutritional_profile.nutrient_value": { $gt: 90000000000 } }
 ).pretty();
+
 
