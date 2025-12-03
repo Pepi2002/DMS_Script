@@ -8,6 +8,7 @@ db.nutrients.insertOne({
 });
 
 // TEST FAILURE-4: Violazione del tipo di dato su nutrient_nbr
+// Risultato atteso: MongoServerError: Document failed validation
 db.nutrients.insertOne({
     id: 900002,
     name: "Test Nutriente Fallito",
@@ -15,3 +16,4 @@ db.nutrients.insertOne({
     nutrient_nbr: "900002", // Fallimento: deve essere un numero
     rank: 99
 });
+
