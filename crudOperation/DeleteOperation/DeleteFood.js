@@ -1,10 +1,8 @@
-/* === DELETE: COLLEZIONE foods === */
-
 // SETUP-1: Inserimento Dati di Test
 db.foods.insertMany([
     {
         fdc_id: 9000010, 
-        description: "Cibo base test", // Filtro comune
+        description: "Cibo base test", 
         data_type: "sr_legacy_food",
         publication_date: ISODate("2024-11-01T00:00:00Z"), 
         acquisitions: [],
@@ -17,7 +15,7 @@ db.foods.insertMany([
     },
     {
         fdc_id: 9000011, 
-        description: "Cibo base test", // Filtro comune
+        description: "Cibo base test", 
         data_type: "sr_legacy_food",
         publication_date: ISODate("2024-11-01T00:00:00Z"), 
         acquisitions: [],
@@ -30,12 +28,13 @@ db.foods.insertMany([
     }
 ]);
 
-// DELETE SUCCESS: Cancellazione Singola per ID
+// TEST SUCCESS-1: Cancellazione Singola per ID
 db.foods.deleteOne(
     { fdc_id: 9000011 } 
 );
 
-// DELETE FAILURE: Cancellazione con filtro non corrispondente
+// TEST FAILURE-1: Cancellazione con filtro non corrispondente
+// Risultato atteso: deletedCount: 0
 db.foods.deleteMany(
-    { data_type: "Data Inesistente" } // Risultato: deletedCount: 0
+    { data_type: "Tipo Inesistente" } 
 );
