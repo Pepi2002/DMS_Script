@@ -38,7 +38,4 @@ db.ingredients.insertOne({
         nutrient_value: 3.5 
         // Fallimento: manca 'nutrient_value_source'
     }]
-})
 });
-
-
