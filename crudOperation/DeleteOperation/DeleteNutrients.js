@@ -1,17 +1,16 @@
-/* === DELETE: COLLEZIONE nutrients === */
-
 // SETUP: Inserimento Dati di Test
 db.nutrients.insertMany([
     { id: 9999991, nutrient_nbr: 999, name: "NutriToRemove", unit_name: "G", rank: 50 },
     { id: 9999992, nutrient_nbr: 998, name: "NutriToRemove", unit_name: "G", rank: 50 }
 ]);
 
-// DELETE SUCCESS: Cancellazione Multipla per attributo
+// TEST SUCCESS-3: Cancellazione Multipla per attributo
 db.nutrients.deleteMany(
-    { name: "NutriToRemove" } // Rimuove 999 e 998
+    { name: "NutriToRemove" } 
 );
 
-// DELETE FAILURE: Cancellazione di un ID non esistente
+// TEST FAILURE-3: Cancellazione di un ID non esistente
+// Risultato atteso: deletedCount: 0
 db.nutrients.deleteOne(
-    { nutrient_nbr: 9999999999 } // Risultato: deletedCount: 0
+    { nutrient_nbr: 9999999999 } 
 );
