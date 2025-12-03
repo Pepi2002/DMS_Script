@@ -12,7 +12,7 @@ db.ingredients.insertOne({
     nutritional_profile: [{
         fndds_id: 500000,
         nutrient_ref: 203,
-        nutrient_value: 10000, // Valore alto per la Query HIGH-2
+        nutrient_value: 100000000000, // Valore alto per la Query HIGH-2
         nutrient_value_source: "Calculated", 
         foundation_year_acquired: 2024,
         start_date: ISODate("2024-01-01T00:00:00Z"), 
@@ -23,10 +23,10 @@ db.ingredients.insertOne({
 // ID-2: Lettura Diretta per ID (food_ref: 900010)
 db.ingredients.find(
     { food_ref: 9000010 }
-).limit(1).pretty();
+).pretty();
 
-// HIGH-2: Query su dati incorporati (Filtra per nutrient_value > 10.0)
+// HIGH-2: Query su dati incorporati (Filtra per nutrient_value > 90000000000)
 db.ingredients.find(
-    { "nutritional_profile.nutrient_value": { $gt: 10500 } }
+    { "nutritional_profile.nutrient_value": { $gt: 90000000000 } }
+).pretty();
 
-).limit(1).pretty();
