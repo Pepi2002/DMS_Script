@@ -1,5 +1,3 @@
-/* === UPDATE: COLLEZIONE foods === */
-
 // SETUP-1: Inserimento Dati di Test (Due documenti per UpdateMany)
 db.foods.insertMany([
     {
@@ -30,13 +28,14 @@ db.foods.insertMany([
     }
 ]);
 
-// SUCCESS-1: Aggiornamento in Blocco - Aggiorna la data di pubblicazione a una data PASSATA (es. 2023)
+// TEST SUCCESS-1: Aggiornamento in Blocco - Aggiorna la data di pubblicazione a una data PASSATA (es. 2023)
 db.foods.updateMany(
     { description: "Cibo base test" }, 
     { $set: { publication_date: ISODate("2023-01-01T00:00:00Z") } } 
 );
 
-// FAILURE-1: Tenta di impostare una stringa su un campo ID numerico (Risultato atteso: ValidationError)
+// TEST FAILURE-1: Tenta di impostare una stringa su un campo ID numerico
+//Risultato atteso: Document filed validation
 db.foods.updateOne(
     { fdc_id: 900010 },
     { $set: { fdc_id: "nuovo_id_sbagliato" } }
