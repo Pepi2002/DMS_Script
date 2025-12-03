@@ -1,16 +1,16 @@
-// --- INSERIMENTO INGREDIENTI CON DATE REALI E VALIDE ---
+// TEST SUCCESS-3: Inserimento valido
 db.ingredients.insertOne({
     food_ref: 900001,
     seq_num: 1,
-    unit: "G",
     portion_description: "100g",
-    gram_weight: 100.0, 
+    gram_weight: 100.4, 
     portion_code: 0,
     retention_code: 0,
     sr_code: 0,
     sr_description: "Test",
     amount: null,
     nutritional_profile: [{ 
+        fndds_id: 1000,
         foundation_year_acquired: 2025,
         nutrient_ref: 203, 
         nutrient_value: 3.5,
@@ -20,13 +20,13 @@ db.ingredients.insertOne({
     }]
 });
 
-// --- FAILURE-3: Violazione del Campo Obbligatorio nell'Array Incorporato ---
+// TEST FAILURE-3: Violazione del Campo Obbligatorio nell'Array Incorporato
+// Risultato atteso: Write Concern Error (Schema validation failed).
 db.ingredients.insertOne({
     food_ref: 900002,
     seq_num: 1,
-    unit: "G",
     portion_description: "100g",
-    gram_weight: 100.0,
+    gram_weight: 100.4,
     portion_code: 0,
     retention_code: 0,
     sr_code: 0,
@@ -38,5 +38,5 @@ db.ingredients.insertOne({
         nutrient_value: 3.5 
         // <<< Fallimento: manca 'nutrient_value_source'
     }]
+})
 });
-// Risultato atteso: Write Concern Error (Schema validation failed).
