@@ -1,10 +1,7 @@
-/* === UPDATE: COLLEZIONE ingredients === */
-
 // SETUP-2: Inserimento Dati di Test (food_ref: 900010)
 db.ingredients.insertOne({
     food_ref: 900010,
     seq_num: 1,
-    unit: "G",
     gram_weight: 100.3, 
     amount: 1.5, 
     portion_code: 1,           
@@ -13,6 +10,7 @@ db.ingredients.insertOne({
     sr_code: 1,                
     sr_description: "Sample description", 
     nutritional_profile: [{
+        fndds_id: 50000,
         nutrient_ref: 203,
         nutrient_value: 1.5, 
         nutrient_value_source: "Calculated",
@@ -22,13 +20,14 @@ db.ingredients.insertOne({
     }]
 });
 
-// SUCCESS-2: Aggiorna il valore nutrizionale del PRIMO elemento [0] nell'array
+// TEST SUCCESS-2: Aggiorna il valore nutrizionale del PRIMO elemento [0] nell'array
 db.ingredients.updateOne(
     { food_ref: 900010 },
     { $set: { "nutritional_profile.0.nutrient_value": 5.5 } }
 );
 
-// FAILURE-2: Tenta di impostare una stringa nel campo numerico dell'array (Risultato atteso: ValidationError)
+// TEST FAILURE-2: Tenta di impostare una stringa nel campo numerico dell'array 
+// Risultato atteso:Document failed validation
 db.ingredients.updateOne(
     { food_ref: 900010 },
     { $set: { "nutritional_profile.0.nutrient_value": "cinque_virgola_cinque" } }
