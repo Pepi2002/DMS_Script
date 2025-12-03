@@ -36,8 +36,9 @@ db.ingredients.insertOne({
         foundation_year_acquired: 2025,
         nutrient_ref: 203,
         nutrient_value: 3.5 
-        // <<< Fallimento: manca 'nutrient_value_source'
+        // Fallimento: manca 'nutrient_value_source'
     }]
 })
 });
+
 
