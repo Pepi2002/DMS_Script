@@ -21,7 +21,7 @@ db.ingredients.insertOne({
 });
 
 // TEST FAILURE-3: Violazione del Campo Obbligatorio nell'Array Incorporato
-// Risultato atteso: Write Concern Error (Schema validation failed).
+// Risultato atteso: MongoServerError: Document failed validation
 db.ingredients.insertOne({
     food_ref: 900002,
     seq_num: 1,
@@ -40,3 +40,4 @@ db.ingredients.insertOne({
     }]
 })
 });
+
