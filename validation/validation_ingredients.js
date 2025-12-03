@@ -21,6 +21,7 @@
       amount: {
         bsonType: [
           'double',
+          'int',
           'null'
         ]
       },
@@ -31,6 +32,7 @@
       gram_weight: {
         bsonType: [
           'double',
+          'int,
           'null'
         ],
         minimum: 0
