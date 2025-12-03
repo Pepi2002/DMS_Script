@@ -68,7 +68,10 @@
               minimum: 0
             },
             nutrient_value: {
-              bsonType: 'double',
+              bsonType: [
+                'double',
+                'int',
+              ],
               minimum: 0
             },
             nutrient_value_source: {
