@@ -1,13 +1,12 @@
-// --- SUCCESS-5: Inserimento Unità di Misura Valida ---
-db.measure_unit.insertOne({
+// TEST SUCCESS-5: Inserimento Unità di Misura Valida
+db.measure_units.insertOne({
     id: 900001,
     name: "test spoon"
 });
-// Risultato atteso: Inserimento OK.
 
-// --- FAILURE-5: Violazione Campo Obbligatorio (name) ---
-db.measure_unit.insertOne({
+// TEST FAILURE-5: Violazione Campo Obbligatorio (name)
+// Risultato atteso: MongoServerError: Document failed validation
+db.measure_units.insertOne({
     id: 900002,
-    // <<< Fallimento: manca 'name'
+    // Fallimento: manca 'name'
 });
-// Risultato atteso: Write Concern Error (Schema validation failed).
